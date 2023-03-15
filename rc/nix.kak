@@ -1,5 +1,7 @@
 hook global WinSetOption filetype=nix %{
   require-module nix-ext
+
+  map -docstring "fix git sha256" buffer nix-fix-sha256 g ': nix-fix-sha256-git<ret>'
 }
 
 provide-module nix-ext %{
@@ -26,6 +28,4 @@ provide-module nix-ext %{
     execute-keys <ret>
     execute-keys "c%opt{nix_sha256}<esc>"
   }
-
-  map -docstring "fix git sha256" buffer nix-fix-sha256 g ': nix-fix-sha256-git<ret>'
 }
